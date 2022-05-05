@@ -30,14 +30,14 @@ Heroku to Supabase Migration Guide
 
 ```
 pg_dump --clean --if-exists --quote-all-identifiers \
- -h `$HEROKU_HOST` -U `$HEROKU_USER` -d `$HEROKU_DATABASE` \
+ -h $HEROKU_HOST -U $HEROKU_USER -d $HEROKU_DATABASE \
  --no-owner --no-privileges > heroku_dump.sql
 ```
 
 ## Import the data to your Supabase project
 
 ```
-psql -h `$SUPABASE_HOST` -U postgres -f heroku_dump.sql 
+psql -h $SUPABASE_HOST -U postgres -f heroku_dump.sql 
 ```
 
 ## (Optional) Post Processing
