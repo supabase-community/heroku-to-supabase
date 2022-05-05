@@ -39,11 +39,3 @@ pg_dump --clean --if-exists --quote-all-identifiers \
 ```
 psql -h $SUPABASE_HOST -U postgres -f heroku_dump.sql 
 ```
-
-## (Optional) Post Processing
-If you're using graphql with your Supabase projects, you may need to issue the following SQL command in your Supabase Dashboard (Query Editor) to make sure the new tables show up:
-
-```sql
-select graphql.rebuild_schema();
-```
-
