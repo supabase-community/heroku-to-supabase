@@ -15,29 +15,29 @@ Heroku to Supabase Migration Guide
 - Click `Settings` in the menu
 - Click `View Credentials`
 - Save your credentials: 
-  - Host ($HEROKU_HOST)
-  - Database ($HEROKU_DATABASE)
-  - User ($HEROKU_USER)
-  - Password ($HEROKU_PASSWORD)
+  - Host (`$HEROKU_HOST`)
+  - Database (`$HEROKU_DATABASE`)
+  - User (`$HEROKU_USER`)
+  - Password (`$HEROKU_PASSWORD`)
 
 ## Get your Supabase Host
 - Log into the Supabase Dashboard (https://supabase.com)
 - Select your project
 - Select Settings / Database
-- Under Connection Info / Host, note your Host ($SUPABASE_HOST)
+- Under Connection Info / Host, note your Host (`$SUPABASE_HOST`)
 
 ## Dump your Heroku Database to a file
 
 ```
 pg_dump --clean --if-exists --quote-all-identifiers \
- -h $HEROKU_HOST -U $HEROKU_USER -d $HEROKU_DATABASE \
+ -h `$HEROKU_HOST` -U `$HEROKU_USER` -d `$HEROKU_DATABASE` \
  --no-owner --no-privileges > heroku_dump.sql
 ```
 
 ## Import the data to your Supabase project
 
 ```
-psql -h $SUPABASE_HOST -U postgres -f heroku_dump.sql 
+psql -h `$SUPABASE_HOST` -U postgres -f heroku_dump.sql 
 ```
 
 ## (Optional) Post Processing
