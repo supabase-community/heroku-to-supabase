@@ -39,3 +39,12 @@ pg_dump --clean --if-exists --quote-all-identifiers \
 ```
 psql -h $SUPABASE_HOST -U postgres -f heroku_dump.sql 
 ```
+
+## Additional Options
+
+- To only migrate a single database schema, add the `--schema=PATTERN` parameter to your `pg_dump` command.
+- To exclude a schema: `--exclude-schema=PATTERN`.
+- To only migrate a single table:  `--table=PATTERN`.
+- To exclude a tables: `--exclude-table=PATTERN`.
+
+Run `pg_dump --help` for a full list of options.
