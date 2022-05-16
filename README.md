@@ -40,13 +40,6 @@ pg_dump --clean --if-exists --quote-all-identifiers \
 psql -h $SUPABASE_HOST -U postgres -f heroku_dump.sql 
 ```
 
-## (Optional) Post Processing
-If you're using graphql with your Supabase projects, you may need to issue the following SQL command in your Supabase Dashboard (Query Editor) to make sure the new tables show up:
-
-```sql
-select graphql.rebuild_schema();
-```
-
 ## Additional Options
 
 - To only migrate a single database schema, add the `--schema=PATTERN` parameter to your `pg_dump` command.
@@ -54,5 +47,4 @@ select graphql.rebuild_schema();
 - To only migrate a single table:  `--table=PATTERN`.
 - To exclude a tables: `--exclude-table=PATTERN`.
 
-Run `pg_dump --help` for a full list of options. 
-
+Run `pg_dump --help` for a full list of options.
